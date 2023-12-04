@@ -95,7 +95,7 @@ public class EmpDAO {
 		PreparedStatement pstmt = null;
 		try {
 			conn = DB.dbConn();
-			String sql = "delete from emp where emono = ?";
+			String sql = "delete from emp where empno = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, empno);
 			result = pstmt.executeUpdate();

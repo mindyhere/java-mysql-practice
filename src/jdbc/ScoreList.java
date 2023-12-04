@@ -209,7 +209,7 @@ public class ScoreList extends JFrame {
 		tfSearch.setBounds(124, 153, 116, 21);
 		contentPane.add(tfSearch);
 		tfSearch.setColumns(10);
-		
+
 		JButton btnSearch = new JButton("찾기");
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -241,13 +241,14 @@ public class ScoreList extends JFrame {
 	}
 
 	public void clear() {
+//	텍스트필드를 초기화
 		tfStudentNo.setText("");
 		tfName.setText("");
 		tfKor.setText("");
 		tfEng.setText("");
 		tfMat.setText("");
-		tfStudentNo.requestFocus();
-		tfStudentNo.setEditable(true);
+		tfStudentNo.requestFocus(); // 해당필드로 커서이동 설정
+		tfStudentNo.setEditable(true); // 편집 가능상태로(true)
 	}
 
 	public void list() {

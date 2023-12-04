@@ -22,16 +22,23 @@ public class ManageEmp {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("사원번호: ");
 		int empno = sc.nextInt();
+// nextInt() 다음에 nextLine()를 실행할 경우, nextLine()가 그냥 넘어가버리는 오류발생
+// nextLine(): Enter값을 기준으로 메소드를 종료시키기 때문에 nextInt()실행 후 남아있던 Enter값를 그대로 읽어 바로 종료되고 그 다음Line이 출력됨
 		System.out.print("이름: ");
-		String ename = sc.nextLine();
+		String ename = sc.next();
+
 		System.out.print("직급: ");
-		String job = sc.nextLine();
-		System.out.print("입사일(년도): ");
-		String hiredate = sc.nextLine();
+		String job = sc.next();
+
+		System.out.print("입사연도: ");
+		String hiredate = sc.next();
+
 		System.out.print("연봉: ");
 		double sal = sc.nextDouble();
+
 		System.out.print("부서번호: ");
 		int deptno = sc.nextInt();
+
 		EmpDTO dto = new EmpDTO(empno, ename, job, hiredate, sal, deptno);
 		dao.insert_emp(dto);
 		System.out.println("추가되었습니다.");
@@ -39,7 +46,7 @@ public class ManageEmp {
 
 	void list() {
 		List<EmpDTO> items = dao.list_emp();
-		System.out.println("사원번호\t이름\t직급\t입사일(년도)\t연봉\t부서번호");
+		System.out.println("사원번호\t이름\t직급\t입사연도\t연봉\t부서번호");
 		System.out.println("=======================================");
 
 		for (EmpDTO dto : items) {
@@ -61,6 +68,7 @@ public class ManageEmp {
 			switch (code) {
 			case 0:
 				System.out.println("프로그램을 종료합니다.");
+				System.exit(0);
 				break;
 			case 1:
 				emp.list();
